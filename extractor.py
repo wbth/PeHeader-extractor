@@ -118,10 +118,10 @@ def extract_pe_features(file_path):
             'SectionsMaxEntropy': max(section.get_entropy() for section in pe.sections) if pe.sections else 0,
             'SectionsMeanRawsize': sum(section.SizeOfRawData for section in pe.sections) / len(pe.sections) if pe.sections else 0,
             'SectionsMinRawsize': min(section.SizeOfRawData for section in pe.sections) if pe.sections else 0,
-            'SectionsMaxRawsize': max(section.SizeOfRawData for section in pe.sections) if pe.sections else 0,
+            'SectionMaxRawsize': max(section.SizeOfRawData for section in pe.sections) if pe.sections else 0,
             'SectionsMeanVirtualsize': sum(section.Misc_VirtualSize for section in pe.sections) / len(pe.sections) if pe.sections else 0,
             'SectionsMinVirtualsize': min(section.Misc_VirtualSize for section in pe.sections) if pe.sections else 0,
-            'SectionsMaxVirtualsize': max(section.Misc_VirtualSize for section in pe.sections) if pe.sections else 0,
+            'SectionMaxVirtualsize': max(section.Misc_VirtualSize for section in pe.sections) if pe.sections else 0,
             
             # Import features
             'ImportsNbDLL': len(pe.DIRECTORY_ENTRY_IMPORT) if hasattr(pe, 'DIRECTORY_ENTRY_IMPORT') else 0,
